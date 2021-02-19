@@ -6,7 +6,8 @@
     "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test" : "cypress run -- --record --spec cypress/integration/firstTest.spec.js" 
   },
   "dependencies": {
     "chart.js": "^2.8.0",
@@ -23,6 +24,7 @@
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
+    "@percy/cypress": "^2.3.4",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
