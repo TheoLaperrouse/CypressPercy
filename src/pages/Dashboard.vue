@@ -151,11 +151,11 @@
           </div>
         </card>
       </div>
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-6">
         <card class="card">
           <h4 slot="header" class="card-title">
             <template v-if="!isRTL">
-              Simple Table
+              Table
             </template>
             <template v-else>
               جدول بسيط
