@@ -9,7 +9,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Starting app
-        run: npm run build --if-present
+        run: npm start &
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
         with:
