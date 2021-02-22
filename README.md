@@ -1,188 +1,185 @@
-# [Vue White Dashboard](https://demos.creative-tim.com/vue-white-dashboard) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/share?url=https%3A%2F%2Fdemos.creative-tim.com%2Fvue-white-dashboard&text=Vue%20White%20Dashboard%20by%20Creative%20Tim&via=CreativeTim&hashtags=vuejs%20%23white%20%23dashboard)
+
+# Cypress & Percy
+
+## TODO
+
+- [ ] Branche de Jérémie
+- [ ] Documenter Percy
+- [x] Trouver Template projet annexe 
+- [x] Installer environnement Cypress et Percy
+- [x] Repo projet annexe -> Github Perso disponible [ici](https://github.com/TheoLaperrouse/cypress-percy)
+- [ ] Faire tests sur projet pro
+- [ ] Percy : Integration Slack & Github/Gitlab
+
+---
+
+## Cypress
+
+Permet de faire des test 'end to end' (De bout en bout, c'est à dire que l'on va crée des scénarios d'utilisation d'une appli web).
+![](https://i.imgur.com/tMOwgWk.png)
+
+### Installation
+
+#### Sur projet 
+
+Selon si on utilise npm ou yarn pour la gestion des paquets :
+- npm install cypress
+- yarn add cypress --dev
+
+### Cypress Test Runner
+
+Mettre en place & écrire les tests
+
+### Cypress Dashboard
+
+Lancer les tests en local ou depuis la CI
+Possibilité de récupérer les données de tests, des screenshoots et des vidéos sur un Dashboard Cypress.
+
+### Principe
+
+Comment va fonctionner Cypress?
+Par de petites actions comme celle ci :
+- Ouvrir une page web
+- Cliquer sur un élément en particulier
+- Rentrer une valeur dans un input
+
+On vient créer différents tests. 
+On vérifie ensuite que le fonctionnement de l'application est bien en accord avec ce qu'elle doit faire.
+
+### Extension Chrome & Firefox
+
+#### Cypress Scenario Recorder
+
+Permet d'enregistrer des scénarii réalisés "à la main", c'est à dire effectué les actions ci-dessus sur notre navigateur et en sortir un test Cypress directement 
+
+Disponible que sur Chrome : https://chrome.google.com/webstore/detail/cypress-scenario-recorder/fmpgoobcionmfneadjapdabmjfkmfekb
 
 
- ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/white-dashboard/issues.svg?maxAge=2592000)](https://github.com/creativetimofficial/vue-white-dashboard/issues/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/vue-white-dashboard/issues.svg?maxAge=2592000)](https://github.com/creativetimofficial/vue-white-dashboard/issues/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim-general/Lobby) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+### Fonctionnalités Cypress
+
+#### Attente automatique
+
+N'ajoutez jamais d'attente à vos tests. Cypress attend automatiquement les ordres et les assertions avant de passer à autre chose. Fini l'enfer de l'asynchronisation.
+
+#### Snapshot
+
+Cypress prend des clichés au fur et à mesure de vos tests. Il vous suffit de survoler les commandes dans la console pour voir exactement ce qui s'est passé à chaque étape.
+
+#### Rechargement en temps réels
+
+Cypress automatically reloads whenever you make changes to your tests. See commands execute in real time in your app.
+
+#### Debugging
+
+Déboguez directement à partir d'outils familiers comme Chrome DevTools. Les erreurs particulièrement lisibles rendent le debugage plus rapide.
+
+#### Controle du traffic réseau
+
+Contrôle facile sans impliquer le server 
+
+![](https://i.imgur.com/lPeMVWU.png)
+
+Fenêtre Cypress Test Runner.
+On peut voir les tests à gauche de l'application et chacune des actions définis dans le test. On peut également voir les requêtes HTTP après l'action et les changements d'URL. (ici le premier get --> lance deux appels à l'API et l'URL change pour aller dans le menu Icon)
+
+Pour chaque action (la sélectionner en cliquant dessus), on peut voir à droite l'application au moment de l'action.
+
+---
 
 
-![Product Gif](https://github.com/creativetimofficial/vue-white-dashboard/blob/live-demo/src/assets/demo/product-gif.gif?raw=true)
+## Percy
 
-**Vue White Dashboard** is a beautiful Bootstrap 4 Admin Dashboard with a huge number of components built to fit together and look amazing. If you are looking for a tool to manage and visualize data about your business, this dashboard is the thing for you. It combines colors that are easy on the eye, spacious cards, beautiful typography, and graphics.
+Permet de faire des reviews visuelles d'une application
 
-**Vue White Dashboard** comes packed with all plugins that you might need inside a project and documentation on how to get started. It is light and easy to use, and also very powerful.
+###  Principe
 
-Vue White Dashboard features over 16 individual components, giving you the freedom of choosing and combining. This means that there are thousands of possible combinations. All components can take variations in color, that you can easily modify using SASS files. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
-We thought about everything, so this dashboard comes with 2 versions, Dark Mode and Light Mode.
+Prend un screenshoot d'une partie de l'application et l'enregistre.
+En effectuant les tests, vérifie s'il diffère de celui d'avant, demande 
 
-We are very excited to share this dashboard with you and we look forward to hearing your feedback!
+### SDK pour Cypress disponible
 
+[Documentation](https://docs.percy.io/docs/cypress)
+Donne accès à cy.percySnapshot() dans les tests e2e Cypress
+#### Installation sur un projet Cypress
+```npm install --save-dev @percy/cypress``` or ```yarn add --dev @percy/cypress``` 
+If typeScript : 
+"types": ["cypress", "@percy/cypress"] in your tsconfig.json file
 
-## Table of Contents
+En haut de cypress/support/commands.js :
+import '@percy/cypress';
 
+En haut de cypress/plugins/index.js
+let percyHealthCheck = require('@percy/cypress/task')
 
-* [Versions](#versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
+module.exports = (on, config) => {
+  on("task", percyHealthCheck);
+};
 
-
-## Versions
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/vue-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vue-white-dashboard)
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel_logo.png?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/white-dashboard-laravel)
-
-
-| Vue | Laravel |
-| --- | --- |
-| [![Vue White Dashboard ](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/vue-white-dashboard.jpg?raw=true)](https://www.creative-tim.com/product/vue-white-dashboard)  | [![White Dashboard Laravel](https://github.com/creativetimofficial/public-assets/blob/master/white-dashboard-laravel/white-dashboard-laravel.jpg?raw=true)](https://www.creative-tim.com/product/white-dashboard-laravel)
-
-## Demo
-
-- [Start page](https://demos.creative-tim.com/vue-white-dashboard)
-- [User profile page](https://demos.creative-tim.com/vue-white-dashboard/#/user)
-- [Tables page ](https://demos.creative-tim.com/vue-white-dashboard/#/table)
-- [Maps Page](https://demos.creative-tim.com/vue-white-dashboard/#/maps)
-- [Notifications page](https://demos.creative-tim.com//vue-white-dashboard/#/notifications)
-
-| Start page | User profile page | Tables page  |
-| --- | --- | ---  |
-| [![Start page](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/start-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard)  | [![User profile page](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/profile-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard/#/user)  | [![Tables pages](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/tables-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard/#/table)
-
-| Maps page | Notifications page | RTL page  |
-| --- | --- | ---  |
-| [![Maps page](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/maps-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard/#/maps)  | [![Notifications page](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/notifications-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard/#/notifications)  | [![RTL page](https://github.com/creativetimofficial/public-assets/blob/master/vue-white-dashboard/rtl-page.png?raw=true)](https://demos.creative-tim.com/vue-white-dashboard/#/dashboard?enableRTL=true)  
-
-## Quick start
-
-- Clone the repo: `git clone https://github.com/creativetimofficial/vue-white-dashboard.git`.
-- [Download from Github](https://github.com/creativetimofficial/vue-white-dashboard/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/vue-white-dashboard).
-
-
-## Documentation
-The documentation for the Vue White Dashboard is hosted at our [website](https://demos.creative-tim.com/vue-white-dashboard/documentation).
-
-
-## File Structure
-Within the download you'll find the following directories and files:
-
-```
-|-- Vue White Dashboard
-    ├── CHANGELOG.md
-    ├── README.md
-    ├── babel.config.js
-    ├── package.json
-    ├── postcss.config.js
-    ├── public
-    └── src
-    ├── App.vue
-    ├── RTLPlugin.js
-    ├── assets
-    │   ├── css
-    │   ├── demo
-    │   ├── fonts
-    │   ├── img
-    │   └── scss
-    │       ├── white-dashboard
-    │       │   ├── bootstrap
-    │       │   ├── custom
-    │       │   └── plugins
-    │       └── white-dashboard.scss
-    ├── components
-    │   ├── BaseAlert.vue
-    │   ├── BaseButton.vue
-    │   ├── BaseCheckbox.vue
-    │   ├── BaseNav.vue
-    │   ├── BaseRadio.vue
-    │   ├── BaseTable.vue
-    │   ├── Cards
-    │   ├── Charts
-    │   ├── CloseButton.vue
-    │   ├── Dropdown.vue
-    │   ├── HelloWorld.vue
-    │   ├── Inputs
-    │   ├── Modal.vue
-    │   ├── NavbarToggleButton.vue
-    │   ├── NotificationPlugin
-    │   ├── SidebarPlugin
-    │   └── index.js
-    ├── config.js
-    ├── globalComponents.js
-    ├── globalDirectives.js
-    ├── i18n.js
-    ├── locales
-    ├── main.js
-    ├── pages
-    │   ├── Dashboard
-    │   ├── Dashboard.vue
-    │   ├── Icons.vue
-    │   ├── Layout
-    │   ├── Maps.vue
-    │   ├── Notifications
-    │   ├── Notifications.vue
-    │   ├── Profile
-    │   ├── TableList.vue
-    │   ├── Typography.vue
-    │   ├── UpgradeToPRO.vue
-    │   └── UserProfile.vue
-    └── router.js
-
+```bash
+export PERCY_TOKEN=5a5015821b61acf67bdeda9ebd87e3bac6c6d444b143192ecd29f41b4f378561
 ```
 
 
-## Browser Support
 
-At present, we officially aim to support the last two versions of the following browsers:
+---
 
-<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
+##  Test des librairies sur des projets
 
-## Resources
-- Demo: <https://demos.creative-tim.com/vue-white-dashboard/#/dashboard>
-- Download Page: <https://www.creative-tim.com/product/vue-white-dashboard>
-- Documentation: <https://demos.creative-tim.com/vue-white-dashboard/documentation>
-- License Agreement: <https://www.creative-tim.com/license>
-- Support: <https://www.creative-tim.com/contact-us>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-white-dashboard/issues)
+### Sur projet annexe
 
-## Reporting Issues
+On part d'un [template Vue](https://www.creative-tim.com/product/vue-white-dashboard) légérement similaire(Graphique, Menu à Gauche, Action bar) 
 
-We use GitHub Issues as the official bug tracker for the Vue White Dashboard. Here are some advices for our users that want to report an issue:
+J'ai exporté ce projet sur un [repo Github](https://github.com/TheoLaperrouse/cypress-percy) disponible ici : 
 
-1. Make sure that you are using the latest version of the Vue White Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+Pour lancer l'application : 
+```vue-cli-service serve``` ou ```npm start```
 
+Réalisation d'un premier test très simple, aller sur l'acceuil et appuyer sur tous les boutons disponible dans le menu 
 
-## Licensing
+```javascript=
+/// <reference types="cypress" />
 
-- Copyright 2019 Creative Tim (https://www.creative-tim.com/)
+describe('Menu', function() {
+    it('click on all menu tabs', function() {
+       cy.visit('http://localhost:8080/#/dashboard')
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(2) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(3) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(4) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(5) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(6) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(7) > .nav-link > p').click()
+       cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(8) > .nav-link > p').click()
+       //Percy Snapshot
+       cy.percySnapshot() 
+    })
+   })
+```
 
-- Licensed under MIT (https://github.com/creativetimofficial/vue-white-dashboard/issues/blob/master/LICENSE.md)
+Premiers pas avec Cypress: 
 
+1) Dans un premier temps, installer les modules : 
+```npm install``` 
+2) Lancement du Cypress Test Runner :
+```npx cypress open```
+3) Cliquer sur le test choisi -> lance un navigateur et le test en visuel
 
-## Useful Links
+### Sur projet pro 
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=mk-github-readme) (earn money)
-- [Blog Creative Tim](http://blog.creative-tim.com/)
-- [Free Products](https://www.creative-tim.com/bootstrap-themes/free?ref=mk-github-readme) from Creative Tim
-- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=mk-github-readme) from Creative Tim
-- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=mk-github-readme) from Creative Tim
-- [Angular Products](https://www.creative-tim.com/bootstrap-themes/angular-themes?ref=mk-github-readme) from Creative Tim
-- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=mk-github-readme) from Creative Tim
-- [More products](https://www.creative-tim.com/bootstrap-themes?ref=mk-github-readme) from Creative Tim
-- Check our Bundles [here](https://www.creative-tim.com/bundles?ref=mk-github-readme)
+#### Comment lancer les tests avec Cypress
 
-### Social Media
+Premièrement, lancer la stack
 
-Twitter: <https://twitter.com/CreativeTim>
+```sh
+cd energiency-solution
+docker-compose up
+```
 
-Facebook: <https://www.facebook.com/CreativeTim>
+On peut lancer les tests comme ça:
 
-Dribbble: <https://dribbble.com/creativetim>
+```sh
+yarn e2e:cypress
+```
 
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
+```tip
+Select 'Electron' as browser to run a spec file on the Cypress UI.
+```

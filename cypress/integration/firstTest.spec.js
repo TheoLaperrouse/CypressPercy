@@ -8,6 +8,25 @@ describe('Menu', function() {
        cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(6) > .nav-link > p').click()
        cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(7) > .nav-link > p').click()
        cy.get('.sidebar-wrapper > .nav > .nav-item:nth-child(8) > .nav-link > p').click()
-       cy.percySnapshot();
+    })
+
+    
+    describe('visualSnapshot', function() {
+        it('IconsPage', function() {
+            cy.visit('http://localhost:8080/#/icons')
+            cy.percySnapshot();
+        })
+        it('DashboardPage', function() {
+            cy.visit('http://localhost:8080/#/dashboard')
+            cy.percySnapshot();
+        })
+        it('MapsPage', function() {
+            cy.visit('http://localhost:8080/#/maps')
+            cy.percySnapshot();
+        })
+        it('Notification', function() {
+            cy.visit('http://localhost:8080/#/notifications')
+            cy.percySnapshot();
+        })
     })
 })
