@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test" : "cypress run -- --record --spec cypress/integration/firstTest.spec.js" 
+    "test": "cypress run -- --spec cypress/integration/firstTest.spec.js"
   },
   "dependencies": {
     "chart.js": "^2.8.0",
