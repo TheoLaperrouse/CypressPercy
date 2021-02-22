@@ -127,7 +127,7 @@
         <card type="tasks">
           <template slot="header">
             <template v-if="!isRTL">
-              <h6 class="title d-inline">Tasks(5)</h6>
+              <h6 class="title d-inline">Tasks</h6>
             </template>
             <template v-else>
               <h6 class="title d-inline">الشحنات</h6>
