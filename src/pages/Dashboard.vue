@@ -135,13 +135,13 @@
         <card type="tasks">
           <template slot="header">
             <template v-if="!isRTL">
-              <h6 class="d-inline">Tasks</h6>
+              <h6 class="title d-inline">Tasks</h6>
             </template>
             <template v-else>
               <h6 class="title d-inline">الشحنات</h6>
             </template>
             <template v-if="!isRTL">
-              <p class="card-category">Today</p>
+              <p class="card-category d-inline">Today</p>
             </template>
             <drop-down tag="div" :class="isRTL ? 'float-left' : ''">
               <button
