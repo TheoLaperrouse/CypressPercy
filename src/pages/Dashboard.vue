@@ -98,7 +98,8 @@
           </line-chart>
         </card>
       </div>
-      <div class="col-lg-4">
+      <div class="">
+        <!--col-lg-4-->
         <card type="chart" cardCol>
           <template slot="header"> </template>
           <bar-chart
