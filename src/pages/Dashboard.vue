@@ -84,7 +84,7 @@
           <template slot="header">
             <h5 class="card-category">{{ $t("dashboard.totalShipments") }}</h5>
             <h3 class="card-title">
-              <i class="tim-icons icon-bell-55"></i> 763,215
+              <i class="tim-icons icon-bell-55 text-primary"></i> 763,215
               <!-- Ajouter text-primary ligne 87 -->
             </h3>
           </template>
