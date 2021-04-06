@@ -11,8 +11,6 @@ jobs:
       - name: Starting app
         run: npm start &
       - name: Percy Test
-        uses: percy/exec-action@v0.3.1
-        with:
-          command: "npm run test:ci"
+        run: "npm run test:ci"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
