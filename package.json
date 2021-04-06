@@ -7,7 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "cypress run -- --spec cypress/integration/firstTest.spec.js"
+    "test:percy": "export PERCY_TOKEN='5a5015821b61acf67bdeda9ebd87e3bac6c6d444b143192ecd29f41b4f378561' && npx percy exec -- cypress run --spec cypress/integration/firstTest.spec.js",
+    "test:open": "npx cypress open"
   },
   "dependencies": {
     "chart.js": "^2.8.0",

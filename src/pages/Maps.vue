@@ -1,6 +1,9 @@
 <template>
   <div class="content">
     <card type="plain">
+        <base-input label="Rentrez du texte ici"
+                  placeholder="du texte">
+        </base-input>
       <template slot="header">
         <h4 class="card-title">Google Maps</h4>
       </template>
@@ -12,12 +15,14 @@
 <script>
 
 import {
-  Card
+  Card,
+  BaseInput
 } from "@/components/index";
 
 export default{
   components:{
-    Card
+    Card,
+    BaseInput,
   },
   mounted() {
     let myLatlng = new window.google.maps.LatLng(40.748817, -73.985428);
