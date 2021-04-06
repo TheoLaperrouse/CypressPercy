@@ -85,7 +85,6 @@
             <h5 class="card-category">{{ $t("dashboard.totalShipments") }}</h5>
             <h3 class="card-title">
               <i class="tim-icons icon-bell-55 text-primary"></i> 763,215
-              <!-- Ajouter text-primary ligne 87 -->
             </h3>
           </template>
           <line-chart
@@ -99,7 +98,8 @@
           </line-chart>
         </card>
       </div>
-      <div class="col-lg-4">
+      <div class="">
+        <!--col-lg-4-->
         <card type="chart" cardCol>
           <template slot="header"> </template>
           <bar-chart
